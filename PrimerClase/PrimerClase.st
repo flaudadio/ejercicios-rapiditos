@@ -1,23 +1,4 @@
-!classDefinition: #AlejandroElEncargado category: #PrimerClase!
-DenotativeObject subclass: #AlejandroElEncargado
-	instanceVariableNames: ''
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'PrimerClase'!
-
-"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
-
-!classDefinition: 'AlejandroElEncargado class' category: #PrimerClase!
-AlejandroElEncargado class
-	instanceVariableNames: ''!
-
-!AlejandroElEncargado class methodsFor: 'as yet unclassified' stamp: 'SF 10/1/2020 21:28:46'!
-saludoCon: unSaludo
-
-	^unSaludo, ' Sergio'! !
-
-
-!classDefinition: #GuardiaDeSkyrim category: #PrimerClase!
+!classDefinition: #GuardiaDeSkyrim category: 'PrimerClase'!
 DenotativeObject subclass: #GuardiaDeSkyrim
 	instanceVariableNames: ''
 	classVariableNames: ''
@@ -26,26 +7,27 @@ DenotativeObject subclass: #GuardiaDeSkyrim
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
-!classDefinition: 'GuardiaDeSkyrim class' category: #PrimerClase!
+!classDefinition: 'GuardiaDeSkyrim class' category: 'PrimerClase'!
 GuardiaDeSkyrim class
-	instanceVariableNames: 'cantidadDeVecesQueHablaronConmigo'!
+	instanceVariableNames: 'cantidadDeVecesQueHablaronConmigo respuestasParaContestar'!
 
-!GuardiaDeSkyrim class methodsFor: 'as yet unclassified' stamp: 'SF 10/1/2020 21:38:12'!
+!GuardiaDeSkyrim class methodsFor: 'as yet unclassified' stamp: 'FL 10/2/2020 16:02:36'!
 contestar
 
-	^'Hola forastero'! !
+	^respuestasParaContestar at: (cantidadDeVecesQueHablaronConmigo min: respuestasParaContestar size).! !
 
-!GuardiaDeSkyrim class methodsFor: 'as yet unclassified' stamp: 'SF 10/1/2020 21:42:04'!
+!GuardiaDeSkyrim class methodsFor: 'as yet unclassified' stamp: 'FL 10/2/2020 16:02:41'!
 conversar
 
 	self recordarQueConversaronConmigo.
-	^self contestar! !
+	^self contestar.! !
 
-!GuardiaDeSkyrim class methodsFor: 'as yet unclassified' stamp: 'SF 10/1/2020 22:03:18'!
+!GuardiaDeSkyrim class methodsFor: 'as yet unclassified' stamp: 'FL 10/4/2020 15:12:35'!
 initializeCollaboratorsFromFile
 	"Auto generated method for loading purposes - Do not modify it"
 
-	cantidadDeVecesQueHablaronConmigo := 2.! !
+	cantidadDeVecesQueHablaronConmigo := 0.
+	respuestasParaContestar := #('Bienvenido forastero' 'En que lo puedo ayudar' 'Buenos dias' 'Lo estaba esperando' '¿me estás hablando a mí?' 'Alegrame el día' 'Buenas' ).! !
 
 !GuardiaDeSkyrim class methodsFor: 'as yet unclassified' stamp: 'SF 10/1/2020 21:51:16'!
 recordarQueConversaronConmigo
